@@ -167,10 +167,12 @@ Pre-configured for Vercel deployment:
 
 ```json
 {
-  "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "frontend",
-  "outputDirectory": "frontend"
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/server.js"
+    }
+  ]
 }
 ```
 
