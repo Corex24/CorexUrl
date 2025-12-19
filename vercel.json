@@ -5,6 +5,17 @@
   "env": {
     "PORT": "23480"
   },
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "frontend/**"
+        ]
+      }
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
