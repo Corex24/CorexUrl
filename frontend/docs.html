@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Documentation | Corex - Universal Media Protection</title>
+    <meta name="description" content="Technical documentation for Corex. Learn about universal URL masking, header transparency, and API proxying.">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="corex_v2_icon.png">
+    <link rel="apple-touch-icon" href="corex_v2_icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://corexanthony.vercel.app/docs.html">
+    <meta property="og:title" content="Documentation | Corex - Universal Media Protection">
+    <meta property="og:description" content="Master Corex masking and proxying. Comprehensive API reference and integration guides.">
+    <meta property="og:image" content="https://corexanthony.vercel.app/corex_v2_icon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://corexanthony.vercel.app/docs.html">
+    <meta property="twitter:title" content="Documentation | Corex - Universal Media Protection">
+    <meta property="twitter:description" content="Master Corex masking and proxying. Comprehensive API reference and integration guides.">
+    <meta property="twitter:image" content="https://corexanthony.vercel.app/corex_v2_icon.png">
+
+    <!-- Theme & Search -->
+    <meta name="theme-color" content="#ff4d4f">
+    <link rel="canonical" href="https://corexanthony.vercel.app/docs.html">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        .doc-wrapper {
+            display: grid;
+            grid-template-columns: 280px 1fr;
+            gap: 60px;
+            padding-top: 120px;
+            padding-bottom: 100px;
+        }
+
+        .sidebar {
+            position: sticky;
+            top: 120px;
+            height: calc(100vh - 160px);
+            overflow-y: auto;
+            padding-right: 20px;
+        }
+
+        .sidebar h3 {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            margin-top: 40px;
+        }
+        
+        .sidebar h3:first-child { margin-top: 0; }
+
+        .sidebar-menu {
+            list-style: none;
+        }
+
+        .sidebar-menu li {
+            margin-bottom: 12px;
+        }
+
+        .sidebar-menu a {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: block;
+            padding: 8px 16px;
+            border-radius: var(--radius-sm);
+        }
+
+        .sidebar-menu a:hover {
+            color: var(--primary);
+            background: rgba(255, 77, 79, 0.05);
+        }
+
+        .sidebar-menu a.active {
+            color: var(--primary);
+            background: rgba(255, 77, 79, 0.1);
+            font-weight: 600;
+        }
+
+        .doc-content section {
+            margin-bottom: 80px;
+            scroll-margin-top: 120px;
+        }
+
+        .doc-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 24px;
+            letter-spacing: -1.5px;
+        }
+
+        .doc-content h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            padding-bottom: 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .doc-content h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #fff;
+        }
+
+        .doc-content p {
+            color: var(--text-dim);
+            font-size: 1.05rem;
+            margin-bottom: 24px;
+        }
+
+        .info-box {
+            background: rgba(255, 77, 79, 0.05);
+            border-left: 4px solid var(--primary);
+            padding: 24px;
+            border-radius: var(--radius-md);
+            margin: 32px 0;
+        }
+
+        .info-box strong {
+            color: var(--primary);
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .api-endpoint {
+            background: var(--bg-surface);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            padding: 24px;
+            margin-bottom: 24px;
+        }
+
+        .api-method {
+            display: inline-block;
+            padding: 4px 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 0.75rem;
+            margin-bottom: 12px;
+            text-transform: uppercase;
+        }
+
+        .api-method.post { background: #ff9800; color: #000; }
+        .api-method.get { background: #2196f3; color: #fff; }
+
+        pre {
+            background: #000 !important;
+            border: 1px solid var(--border) !important;
+            border-radius: var(--radius-md) !important;
+            padding: 24px !important;
+            margin: 24px 0 !important;
+        }
+
+        code {
+            font-family: 'Fira Code', monospace !important;
+            font-size: 0.9rem !important;
+        }
+
+        @media (max-width: 768px) {
+            .doc-wrapper { grid-template-columns: 1fr; }
+            .sidebar { display: none; }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="corex_v2_icon.png" alt="Corex Logo">
+                <span>COREX</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="/">Home</a></li>
+                <li><a href="docs.html" class="active" style="color: var(--primary)">Docs</a></li>
+                <li><a href="https://github.com/Corex24/Corex" target="_blank">GitHub</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="doc-wrapper">
+            <aside class="docs-sidebar">
+                <div class="sidebar-header" onclick="toggleSidebar()">
+                     <!-- Mobile Header for Sidebar -->
+                </div>
+                <h3>Getting Started</h3>
+                <ul class="sidebar-menu">
+                    <li><a href="#introduction" class="active">Introduction</a></li>
+                    <li><a href="#installation">Installation</a></li>
+                    <li><a href="#quick-start">Quick Start</a></li>
+                </ul>
+
+                <h3>Technical Guides</h3>
+                <ul class="sidebar-menu" style="display: block;">
+                    <li><a href="#core-usage">Library Usage</a></li>
+                    <li><a href="#configuration">Configuration patterns</a></li>
+                </ul>
+
+                <h3>API Reference</h3>
+                <ul class="sidebar-menu" style="display: block;">
+                    <li><a href="#endpoints">Endpoint List</a></li>
+                    <li><a href="#error-handling">Error Handling</a></li>
+                </ul>
+                </div> <!-- End sidebar-menu-container -->
+            </aside>
+
+            <main class="doc-content">
+                <section id="introduction">
+                    <h1>Documentation</h1>
+                    <p>Corex is a high-performance URL masking and API proxy library designed for secure media delivery. It protects your infrastructure by providing masked, transparent bridges between your private content and public clients.</p>
+                </section>
+
+                <section id="installation">
+                    <h2>Installation</h2>
+                    <p>Install the Corex library to your project using npm:</p>
+                    <pre><code>npm install corex --save-dev</code></pre>
+                </section>
+
+                <section id="configuration">
+                    <h2>Usage & Configuration</h2>
+                    <p>Corex supports flexible import and configuration patterns, allowing you to override defaults easily.</p>
+                    
+                    <h3>Import All Modules</h3>
+                    <p>How to import all available utilities in one line:</p>
+                    <pre><code>const { coverUrl, proxyApi, getFormat, wrapUrl } = require('corex')</code></pre>
+
+                    <h3>Usage Pattern</h3>
+                    <p>Example of standard usage in a configuration file or application entry point:</p>
+                    <pre><code>module.exports = require('corex')</code></pre>
+
+                    <h3>Configuration Overrides</h3>
+                    <p>To customize or extend Corex with project-specific overrides, use the spread operator pattern:</p>
+                    <pre><code>module.exports = {
+  ...require('corex'),
+  /** optional specialized submodules **/
+  ...require('corex/dist/utils'),
+  ...{
+    /** custom local overrides **/
+    apiKey: 'your_key',
+    debug: true
+  },
+}</code></pre>
+                </section>
+
+                <section id="endpoints">
+                    <h2>API Endpoints</h2>
+                    
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span> <code>/corex/register</code>
+                        <h3>URL Registration</h3>
+                        <p>Register a single URL and receive a production-ready masked ID.</p>
+                        <pre><code>Request: { "url": "https://..." }
+Response: { "id": "cx_...", "masked": "https://..." }</code></pre>
+                    </div>
+
+                    <div class="api-endpoint">
+                        <span class="api-method post">POST</span> <code>/corex/proxy-json</code>
+                        <h3>JSON Wrapping</h3>
+                        <p>Traverse complex payloads. All found media URLs are replaced with Corex bridges.</p>
+                        <pre><code>Request: { "data": { ... } }
+Response: { "masked": { ... } }</code></pre>
+                    </div>
+
+                    <div class="api-endpoint">
+                        <span class="api-method get">GET</span> <code>/corex/:id</code>
+                        <h3>Live Bridge</h3>
+                        <p>The primary stream resolver. Supports range requests and header transparency.</p>
+                    </div>
+                </section>
+
+                <section id="error-handling">
+                    <h2>Error Handling</h2>
+                    <p>Corex uses standard HTTP status codes for all API responses.</p>
+                    <table style="width: 100%; border-collapse: collapse; margin-top: 20px; color: var(--text-dim);">
+                        <thead>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <th style="padding: 12px; text-align: left;">Code</th>
+                                <th style="padding: 12px; text-align: left;">Meaning</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 12px;">400</td>
+                                <td style="padding: 12px;">Invalid URL or payload provided.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 12px;">404</td>
+                                <td style="padding: 12px;">Resource not found in registration store.</td>
+                            </tr>
+                            <tr style="border-bottom: 1px solid var(--border);">
+                                <td style="padding: 12px;">500</td>
+                                <td style="padding: 12px;">Internal proxy or storage failure.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <footer class="footer" style="padding: 100px 0 40px; border-top: 1px solid var(--border); background: #000; text-align: center;">
+        <div class="container">
+            <p style="color: var(--text-muted); font-size: 0.85rem;">&copy; 2025 Corex. Built for scale by Corex24.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll sidebar highlight
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    document.querySelectorAll('.sidebar-menu a').forEach(link => {
+                        link.classList.toggle('active', link.getAttribute('href') === '#' + entry.target.id);
+                    });
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
+    </script>
+    <script>
+        // Mobile Menu (Navbar)
+        function toggleMenu() {
+            const nav = document.querySelector('.nav-links');
+            nav.classList.toggle('active');
+            const icon = document.querySelector('.hamburger i');
+            icon.className = nav.classList.contains('active') ? 'fas fa-times' : 'fas fa-bars';
+        }
+
+        // Docs Sidebar Mobile Toggle
+        function toggleSidebar() {
+            // Only affects mobile via CSS logic
+            const menus = document.querySelectorAll('.docs-sidebar .sidebar-menu');
+            menus.forEach(menu => {
+                if (window.innerWidth <= 768) {
+                    menu.style.display = (menu.style.display === 'block') ? 'none' : 'block';
+                }
+            });
+            // Also toggle the active class for strictly CSS-based approaches
+            document.querySelectorAll('.sidebar-menu').forEach(el => el.classList.toggle('active'));
+        }
+
+        // Ensure sidebar is visible on desktop resize
+        window.addEventListener('resize', () => {
+            if(window.innerWidth > 768) {
+                document.querySelectorAll('.sidebar-menu').forEach(el => el.style.display = 'block');
+            } else {
+                // Reset to hidden on mobile default
+                 document.querySelectorAll('.sidebar-menu').forEach(el => el.style.display = 'none');
+            }
+        });
+    </script>
+</body>
+</html>

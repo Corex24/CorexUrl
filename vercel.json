@@ -1,0 +1,65 @@
+{
+  "version": 2,
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend",
+  "nodeVersion": "18.x",
+  "env": {
+    "PORT": "23480"
+  },
+  "rewrites": [
+    {
+      "source": "/((?!api).*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/index.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/docs.html",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=3600, must-revalidate"
+        }
+      ]
+    },
+    {
+      "source": "/styles.css",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.png",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "max-age=31536000, immutable"
+        }
+      ]
+    }
+  ],
+  "redirects": [
+    {
+      "source": "/docs",
+      "destination": "/docs.html",
+      "permanent": true
+    },
+    {
+      "source": "/documentation",
+      "destination": "/docs.html",
+      "permanent": true
+    }
+  ]
+}

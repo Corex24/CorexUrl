@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    
+    <title>Corex - Universal URL Masking & API Proxy | Next-Gen Media Protection</title>
+    <meta name="description" content="Secure, universal URL masking and API proxy. Protect any media format (MP4, MKV, SRT) from any source (TikTok, CDN) with a smart heuristic engine.">
+    
+    <!-- Icons -->
+    <link rel="icon" type="image/png" href="corex_v2_icon.png">
+    <link rel="apple-touch-icon" href="corex_v2_icon.png">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://corexanthony.vercel.app/">
+    <meta property="og:title" content="Corex - Universal URL Masking & API Proxy">
+    <meta property="og:description" content="Protect your media infrastructure. Universal masking for MP4, MKV, SRT and more with deep API proxying.">
+    <meta property="og:image" content="https://corexanthony.vercel.app/corex_v2_icon.png">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://corexanthony.vercel.app/">
+    <meta property="twitter:title" content="Corex - Universal URL Masking & API Proxy">
+    <meta property="twitter:description" content="Protect your media infrastructure. Universal masking for MP4, MKV, SRT and more with deep API proxying.">
+    <meta property="twitter:image" content="https://corexanthony.vercel.app/corex_v2_icon.png">
+
+    <!-- Theme & Search -->
+    <meta name="theme-color" content="#ff4d4f">
+    <link rel="canonical" href="https://corexanthony.vercel.app/">
+    
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="/" class="logo">
+                <img src="corex_v2_icon.png" alt="Corex Logo">
+                <span>COREX</span>
+            </a>
+            <div class="hamburger" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#features">Features</a></li>
+                <li><a href="docs.html">Documentation</a></li>
+                <li><a href="https://github.com/Corex24/Corex" target="_blank">GitHub</a></li>
+            </ul>
+            <div class="nav-actions">
+                <a href="https://github.com/Corex24/Corex" class="btn btn-secondary btn-sm" style="padding: 8px 16px; font-size: 0.85rem;">
+                    <i class="fab fa-github"></i> Star
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <span class="badge">Version 2.0 • Universal Heuristic Engine</span>
+            <h1>Mask any URL.<br>Protect every format.</h1>
+            <p>The ultimate production-ready URL masking and API proxy service. Secure your media sources with smart detection and header transparency.</p>
+            
+            <div class="npm-search-box">
+                <i class="fas fa-terminal" style="color: var(--text-muted)"></i>
+                <div class="copy-command">
+                    <code id="command-text">npm install corex</code>
+                    <button class="copy-btn" onclick="copyToClipboard()">
+                        <i class="fas fa-copy"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="stats">
+                <div class="stat">
+                    <span class="stat-number">Format Blind</span>
+                    <span class="stat-label">Detects MP4, MKV, SRT & more</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Real-time</span>
+                    <span class="stat-label">Header Transparency Proxy</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">Enterprise</span>
+                    <span class="stat-label">Upstash Redis Persistence</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CLI Section -->
+    <section class="cli-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2>Developer First</h2>
+                <p class="section-subtitle" style="color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2rem;">Implement global security in three lines of code.</p>
+            </div>
+            
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <h3>Library Usage</h3>
+                    <p style="color: var(--text-dim); margin-bottom: 20px;">Import everything you need to start masking and proxying safely.</p>
+                    <pre><code>// Import all of them
+const { coverUrl, proxyApi, getFormat } = require('corex')
+
+// Use in your application
+const masked = await coverUrl('https://site.com/video.mp4')</code></pre>
+                </div>
+                <div class="usage-card">
+                    <h3>Override Pattern</h3>
+                    <p style="color: var(--text-dim); margin-bottom: 20px;">Use the spread operator for clean project-specific overrides.</p>
+                    <pre><code>module.exports = {
+  ...require('corex'),
+  ...{
+    /** custom local overrides **/
+    timeout: 5000,
+  },
+}</code></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Library Features -->
+    <section class="ecosystem-section" style="padding: 100px 0; background: rgba(255, 77, 79, 0.02);">
+        <div class="container">
+            <div class="section-header" style="margin-bottom: 60px;">
+                <h2 style="font-size: 2.5rem;">Core Functionality</h2>
+                <p style="color: var(--text-dim);">The universal bridge between original content and secure delivery.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <div style="padding: 30px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md);">
+                    <code style="color: var(--primary); display: block; margin-bottom: 15px;">URL Masking</code>
+                    <p style="color: var(--text-dim); font-size: 0.95rem;">Hide original source URLs behind persistent, secure Corex IDs.</p>
+                </div>
+                <div style="padding: 30px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md);">
+                    <code style="color: var(--primary); display: block; margin-bottom: 15px;">API Proxying</code>
+                    <p style="color: var(--text-dim); font-size: 0.95rem;">Deep-traverse JSON payloads and mask all nested media links automatically.</p>
+                </div>
+                <div style="padding: 30px; background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-md);">
+                    <code style="color: var(--primary); display: block; margin-bottom: 15px;">Smart Heuristics</code>
+                    <p style="color: var(--text-dim); font-size: 0.95rem;">Format-blind detection for MP4, MKV, SRT, and hundreds of other types.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features-section">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-shield-halved"></i>
+                    <h3>Smart Heuristics</h3>
+                    <p>No whitelists. Our engine dynamically identifies any file-type while protecting your actual web routes.</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-rotate"></i>
+                    <h3>Header Transparency</h3>
+                    <p>Proxies upstream headers precisely. Masked URLs behave exactly like originals (Download vs Stream).</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-database"></i>
+                    <h3>Cloud Persistence</h3>
+                    <p>Direct integration with Upstash Redis ensures your masked IDs never expire or break.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="container">
+            <h2 style="font-size: 3.5rem; letter-spacing: -2px; margin-bottom: 20px;">Ready to secure your data?</h2>
+            <p style="font-size: 1.25rem; margin-bottom: 40px; color: var(--text-dim);">Join hundreds of developers building private media applications with Corex.</p>
+            <div class="cta-buttons" style="display: flex; gap: 16px; justify-content: center;">
+                <a href="docs.html" class="btn btn-primary">
+                    <i class="fas fa-book"></i> Read the Docs
+                </a>
+                <a href="https://github.com/Corex24/Corex" target="_blank" class="btn btn-secondary">
+                    <i class="fab fa-github"></i> View GitHub
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer" style="padding: 100px 0 40px; border-top: 1px solid var(--border); background: #000;">
+        <div class="container">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 40px;">
+                <div style="max-width: 300px;">
+                    <a href="/" class="logo" style="margin-bottom: 20px; text-decoration: none;">
+                        <img src="icon (2).png" alt="Corex Logo" style="height: 40px; width: 40px;">
+                        <span style="color: #fff">COREX</span>
+                    </a>
+                    <p style="color: var(--text-muted); font-size: 0.9rem;">The universal bridge between original content and secure delivery.</p>
+                </div>
+                <div style="display: flex; gap: 80px;">
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Product</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
+                            <li><a href="#features" style="color: var(--text-dim); text-decoration: none;">Features</a></li>
+                            <li><a href="docs.html" style="color: var(--text-dim); text-decoration: none;">Documentation</a></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h4 style="color: #fff; margin-bottom: 20px; font-size: 0.9rem; text-transform: uppercase; letter-spacing: 1px;">Company</h4>
+                        <ul style="list-style: none; display: flex; flex-direction: column; gap: 12px; font-size: 0.9rem;">
+                            <li><a href="https://github.com/Corex24" style="color: var(--text-dim); text-decoration: none;">About</a></li>
+                            <li><a href="https://github.com/Corex24/Corex/issues" style="color: var(--text-dim); text-decoration: none;">Support</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 80px; padding-top: 40px; border-top: 1px solid var(--border); text-align: center; color: var(--text-muted); font-size: 0.85rem;">
+                <p>&copy; 2025 Corex. Built by Corex24. MIT Licensed.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+    function copyToClipboard() {
+        const commandText = document.getElementById('command-text').innerText;
+        navigator.clipboard.writeText(commandText).then(() => {
+            const btn = document.querySelector('.copy-btn');
+            const originalHTML = btn.innerHTML;
+            btn.innerHTML = '<i class="fas fa-check" style="color: #52c41a"></i>';
+            setTimeout(() => {
+                btn.innerHTML = originalHTML;
+            }, 2000);
+        });
+    }
+
+    // Mobile Menu Toggle
+    function toggleMenu() {
+        const nav = document.querySelector('.nav-links');
+        nav.classList.toggle('active');
+        
+        const icon = document.querySelector('.hamburger i');
+        if(nav.classList.contains('active')) {
+            icon.className = 'fas fa-times';
+        } else {
+            icon.className = 'fas fa-bars';
+        }
+    }
+
+    // Navbar scroll effect
+    window.addEventListener('scroll', () => {
+        const nav = document.querySelector('.navbar');
+        if (window.scrollY > 50) {
+            nav.style.height = '70px';
+            nav.style.background = 'rgba(10, 10, 12, 0.95)';
+        } else {
+            nav.style.height = '80px';
+            nav.style.background = 'rgba(18, 18, 22, 0.8)';
+        }
+    });
+    </script>
+</body>
+</html>
