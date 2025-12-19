@@ -170,7 +170,7 @@ Pre-configured for Vercel deployment:
   "version": 2,
   "buildCommand": "npm run build",
   "outputDirectory": "frontend",
-  "nodeVersion": "18.x"
+  "outputDirectory": "frontend"
 }
 ```
 
