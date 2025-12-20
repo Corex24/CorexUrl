@@ -47,15 +47,17 @@ app.use((err, req, res, next) => {
   });
 });
 
-// Start the server
-app.listen(PORT, () => {
-  console.log(`\nCorexUrl server is running`);
-  console.log(`Local: http://localhost:${PORT}`);
-  console.log(`Production: https://corexanthony.vercel.app`);
-  console.log(`\nAPI endpoints ready:`);
-  console.log(`   POST /corex/register - Register URLs`);
-  console.log(`   POST /corex/proxy-json - Proxy JSON`);
-  console.log(`   GET /corex/:id - Stream media\n`);
-});
+// Start the server only if run directly (CLI/Local)
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\nCorexUrl server is running`);
+    console.log(`Local: http://localhost:${PORT}`);
+    console.log(`Production: https://corexanthony.vercel.app`);
+    console.log(`\nAPI endpoints ready:`);
+    console.log(`   POST /corex/register - Register URLs`);
+    console.log(`   POST /corex/proxy-json - Proxy JSON`);
+    console.log(`   GET /corex/:id - Stream media\n`);
+  });
+}
 
 module.exports = app;
