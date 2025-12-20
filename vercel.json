@@ -1,5 +1,7 @@
 {
   "version": 2,
+  "buildCommand": "echo 'Build skipped. Serving from root.'",
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/(.*)",
