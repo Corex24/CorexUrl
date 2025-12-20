@@ -1,5 +1,16 @@
 {
   "version": 2,
+  "builds": [
+    {
+      "src": "server.js",
+      "use": "@vercel/node",
+      "config": {
+        "includeFiles": [
+          "frontend/**"
+        ]
+      }
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
@@ -33,7 +44,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "max-age=3600, must-revalidate"
+          "value": "max-age=31536000, immutable"
         }
       ]
     },
@@ -42,7 +53,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "max-age=3600, must-revalidate"
+          "value": "max-age=31536000, immutable"
         }
       ]
     }
