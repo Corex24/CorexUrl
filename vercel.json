@@ -1,34 +1,21 @@
 {
   "version": 2,
-  "buildCommand": "npm run build",
-  "outputDirectory": "frontend",
-  "env": {
-    "PORT": "23480"
-  },
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": {
-        "includeFiles": [
-          "frontend/**"
-        ]
-      }
-    }
-  ],
   "rewrites": [
     {
       "source": "/(.*)",
       "destination": "/server.js"
     }
   ],
+  "env": {
+    "PORT": "23480"
+  },
   "headers": [
     {
       "source": "/index.html",
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "max-age=31536000, immutable"
+          "value": "max-age=3600, must-revalidate"
         }
       ]
     },
@@ -46,7 +33,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "max-age=31536000, immutable"
+          "value": "max-age=3600, must-revalidate"
         }
       ]
     },
@@ -55,7 +42,7 @@
       "headers": [
         {
           "key": "Cache-Control",
-          "value": "max-age=31536000, immutable"
+          "value": "max-age=3600, must-revalidate"
         }
       ]
     }
@@ -73,3 +60,4 @@
     }
   ]
 }
+```
