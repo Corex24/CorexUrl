@@ -1,15 +1,20 @@
 {
   "version": 2,
-  "buildCommand": "echo 'Build skipped. Serving from root.'",
-  "outputDirectory": ".",
+  "builds": [
+    {
+      "src": "api/index.js",
+      "use": "@vercel/node"
+    }
+  ],
   "rewrites": [
     {
       "source": "/(.*)",
-      "destination": "/api/index.js"
+      "destination": "api/index.js"
     }
   ],
   "env": {
-    "PORT": "23480"
+    "PORT": "23480",
+    "COREX_BASE": "https://corexurl-oxr4821pe-corexs-projects-40542f7e.vercel.app/corex"
   },
   "headers": [
     {
