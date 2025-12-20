@@ -1,5 +1,6 @@
 {
   "version": 2,
+  "buildCommand": "echo 'Site is live'",
   "outputDirectory": ".",
   "rewrites": [
     {

@@ -167,6 +167,7 @@ Pre-configured for Vercel deployment:
 
 ```json
 {
+  "buildCommand": "echo 'Site is live'",
   "outputDirectory": ".",
   "rewrites": [
     {
