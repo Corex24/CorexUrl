@@ -167,14 +167,7 @@ Pre-configured for Vercel deployment:
 
 ```json
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "server.js",
-      "use": "@vercel/node",
-      "config": { "includeFiles": ["frontend/**"] }
-    }
-  ],
+  "outputDirectory": ".",
   "rewrites": [
     {
       "source": "/(.*)",
