@@ -34,6 +34,7 @@
   "homepage": "https://github.com/Corex24/Corex#readme",
   "dependencies": {
     "@upstash/redis": "^1.34.3",
+    "body-parser": "^2.2.1",
     "cors": "^2.8.5",
     "dotenv": "^17.2.3",
     "express": "^5.2.1",
